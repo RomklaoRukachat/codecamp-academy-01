@@ -171,7 +171,6 @@
 
 const express = require("express");
 const productRoute = require("../routes/product-route");
-const authRoute = require("../routes/auth-route");
 const errorHandler = require("../middlewares/error");
 const notFoundHandler = require("../middlewares/not-found");
 const cors = require("cors");
@@ -203,7 +202,7 @@ app.use(express.json());
 //   res.json({ id });
 // });
 
-app.use("/auth", authRoute);
+// app.use("/auth")
 app.use("/product", productRoute);
 
 app.use(errorHandler);
