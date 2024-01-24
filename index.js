@@ -1,8 +1,17 @@
 require("dotenv").config();
-const express =require("express");
+const express = require("express");
+const authRoute = require("./routes/auth-route");
 
-const app =express();
+const errorHandler = require("./middlewares/error");
 
-app.listen(8001,() => {
-  console.log("Server run on port 8001"); 
-})
+const app = express();
+
+app.use(express.json());
+
+app.use("/auth", authRoute);
+
+app.use(errorHandler);
+
+app.listen(8000, () => {
+  console.log("Server run on port 8000");
+});
